@@ -38,6 +38,11 @@ target_compile_options(${SWIG_TARGET} PUBLIC ${CXTGEOFLAGS})
 target_link_libraries(
   ${SWIG_TARGET} xtg ${Python_LIBRARIES} Python::Module Python::NumPy)
 
+find_package(OpenMP REQUIRED)
+if(OpenMP_C_FOUND)
+    target_link_libraries(${SWIG_TARGET} PRIVATE OpenMP::OpenMP_C)
+endif()
+
 message(STATUS "XTGeo Python executable  : ${Python_EXECUTABLE}")
 message(STATUS "XTGeo Python include dirs: ${Python_INCLUDE_DIRS}")
 message(STATUS "XTGeo numpy include path : ${Python_NumPy_INCLUDE_DIRS}")

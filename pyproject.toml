@@ -16,6 +16,7 @@ cmake.verbose = true
 metadata.version.provider = "scikit_build_core.metadata.setuptools_scm"
 sdist.include = ["src/xtgeo/common/version.py"]
 wheel.install-dir = "xtgeo"
+build-dir = "build/{wheel_tag}"
 
 [project]
 name = "xtgeo"
